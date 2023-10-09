@@ -1,15 +1,20 @@
+"use client";
+import React, { useEffect } from 'react'
 import { TechStrip } from '@/components/tech-strip/tech-strip'
 import Image from 'next/image'
+import dynamic from "next/dynamic";
 
+
+const DynamicComponent = dynamic(() => import("../components/header/header"), {
+  ssr: false,
+});
 
 export default function Home() {
+
   return (
     <main>
-      <h1>Adam Flatley's website</h1>
-      <p>haha text go brrr</p>
+      <DynamicComponent />
       <TechStrip/>
-
     </main>
-
   )
 }
