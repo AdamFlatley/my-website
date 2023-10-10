@@ -18,16 +18,22 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       keyframes: {
+        grow: {
+          '0%': { transform: ' scale(1.00)' },
+          '33%': { transform: ' scale(1.06)' },
+          '66%': { transform: ' scale(1.12)' },
+          '100%': { transform: ' scale(1.20)' },
+        },
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
           '50%': { transform: 'rotate(3deg)' },
-        }
+        },
       },
       animation: {
         wiggle: 'wiggle 1s ease-in-out',
+        grow: 'grow 0.5s ease-in-out forwards',
       }
-    },
-    safelist: ['animate-[tada_1s_ease-in-out]']
+    }
   },
 
   plugins: [require("tw-elements-react/dist/plugin.cjs"), require("tw-elements/dist/plugin.cjs")],
