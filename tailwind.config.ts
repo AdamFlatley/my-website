@@ -36,6 +36,6 @@ const config: Config = {
     }
   },
 
-  plugins: [require("tw-elements-react/dist/plugin.cjs"), require("tw-elements/dist/plugin.cjs")],
+  plugins: [require('@tailwindcss/typography')],
 }
 export default config

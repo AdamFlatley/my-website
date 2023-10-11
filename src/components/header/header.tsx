@@ -18,10 +18,10 @@ const Header = () => {
             </div>
             <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto ml-2">
                 <div className="text-med lg:flex-grow">
-                    <HeaderTab TabName={"Blog"} />
-                    <HeaderTab TabName={"About"} />
-                    <HeaderTab TabName={"Links"} />
-                    <HeaderTab TabName={"Reading List"} />
+                    <HeaderTab LinkDestination={"/blog"} TabName={"Blog"} />
+                    <HeaderTab LinkDestination={"/about"} TabName={"About"} />
+                    <HeaderTab LinkDestination={"/links"} TabName={"Links"} />
+                    <HeaderTab LinkDestination={"/reading-list"} TabName={"Reading List"} />
                 </div>
             </div>
         </nav>

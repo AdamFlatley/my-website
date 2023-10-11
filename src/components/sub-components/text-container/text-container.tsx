@@ -7,7 +7,7 @@ type TextContainerProps = {
 export const TextContainer = (text: TextContainerProps) => {
     return (
     <div className='m-10'>
-        <b>{text.text}</b>
+        <b className= 'font-Consolas text-xl font-semibold'>{text.text}</b>
     </div>
 
 )
