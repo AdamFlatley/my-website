@@ -9,7 +9,9 @@ COMPONENT TODO LIST:
 - [ ] Create Header
 - [ ] Create Footer
 - [ ] Tech icon strip
-
+- [ ] Decide On Content
+- [ ] Add Styling throughout
+- [ ] Add margins either side of website (max Width of components)
 
 
 ## Getting Started

@@ -21,6 +21,7 @@ const Header = () => {
                     <HeaderTab TabName={"Blog"} />
                     <HeaderTab TabName={"About"} />
                     <HeaderTab TabName={"Links"} />
+                    <HeaderTab TabName={"Reading List"} />
                 </div>
             </div>
         </nav>
