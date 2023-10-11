@@ -1,6 +1,8 @@
 export const allTextContents = {
     IntroParagraph: "I'm Adam, a fullstack developer with experience in Java Spring and Typescript with GQL. I have over 2 and a half years professional experience whilst working at Auto Trader UK and whilst I'd say I have a preference for backend systems I feel confident in approaching any layer of a tech stack."
     + ' I have experience setting up both services and apps and am consistently on the lookout to learn more. I built this website using React and Tailwind as an attempt to tackle a personal vendetta against styling and I\'ts been a blast. Previously I\'d only ever used styled components so this has definitely been an experience and a learning curve at that.',
-    WhatToDo: 'Feel free to look around as I try to keep this website up to date with my reading list, personal blog posts and even some updated versions of apps that I\'d created when younger (maybe even some new apps too).'
-
+    WhatToDo: 'Feel free to look around as I try to keep this website up to date with my reading list, personal blog posts and even some updated versions of apps that I\'ve created when I was younger - maybe even some new apps too!',
+    MoreAboutMe: 'My first experience with programming was at the University of Manchester where I completed my masters in Physics. The first line of code was written in MatLab and in complete honesty - I hated it. But a year later there was an introductory programming module in Python. Now Python was a wholly different story - it felt clean it felt logical and it wasn\'t about graphing 24/7'
+    + 'and it was just brilliant. But swamped with coursework and bar work I didnt see programming again until my third year of university where they offered an \'Object Oriented Programming in C++\' module. \n Without hesitation I chose it as my optional module, ran, and never looked back.',
+    MoreAboutMe2: 'With some experience under my belt I ventured into my Masters where I completed 2 different Thesis\'. One using Artificial Intelligence to detect atrial fibrillation using Python and TensorFlow, and one modelling Liquid crystals using voronoi diagrams which went on to be published!'
 };

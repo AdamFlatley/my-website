@@ -7,15 +7,14 @@ const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 
  const MainBody = () => {
     return (
-    <div className="flex flex-col justify-center max-w-screen-xl m-auto">
-        <TextContainer text={allTextContents.IntroParagraph}/>
-        <TextContainer text={allTextContents.WhatToDo}/>
-        <TextContainer text={loremIpsum}/>
-        <TextContainer text={loremIpsum}/>
+        <div className="flex flex-col max-w-screen-xl m-auto">
+            <TextContainer text={allTextContents.IntroParagraph}/>
+            <TextContainer text={allTextContents.WhatToDo}/>
+            <TextContainer text={allTextContents.MoreAboutMe} removeBottomBorder={true}/>
+            <TextContainer text={allTextContents.MoreAboutMe2}/>
 
-        <TechStrip />
-    </div>
-
-)
+            <TechStrip />
+        </div>
+    )
 }
 export default MainBody
