@@ -22,7 +22,7 @@ const config: Config = {
           '0%': { transform: ' scale(1.00)' },
           '33%': { transform: ' scale(1.06)' },
           '66%': { transform: ' scale(1.12)' },
-          '100%': { transform: ' scale(1.20)' },
+          '100%': { transform: ' scale(1.12)' },
         },
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },

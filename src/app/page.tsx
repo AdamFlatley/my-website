@@ -1,22 +1,21 @@
 "use client";
 import React, { useEffect } from 'react'
-import { TechStrip } from '@/components/tech-strip/tech-strip'
 import Image from 'next/image'
 import dynamic from "next/dynamic";
 import Footer from '@/components/footer/footer'
+import MainBody from '@/components/main-body.tsx/main-body';
 
 
-const DynamicComponent = dynamic(() => import("../components/header/header"), {
+const Header = dynamic(() => import("../components/header/header"), {
   ssr: false,
 });
 
 export default function Home() {
 
   return (
-    <main className="flex-col">
-      <DynamicComponent />
-      <b className='min-h-screen'>empty Body</b>
-      <TechStrip/>
+    <main className='flex flex-col'>
+      <Header />
+      <MainBody />
       <Footer />
     </main>
   )
