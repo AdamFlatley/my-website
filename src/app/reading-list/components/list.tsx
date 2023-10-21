@@ -1,5 +1,6 @@
 import React from 'react';
-import { ReadingListDataType } from './reading-list.data'
+import { ReadingListDataType, ReadingListCompleteDataObject } from './reading-list.data'
+
 
 
 const mapReadingListData = (readingListEntry: ReadingListDataType) => {
@@ -13,7 +14,9 @@ const mapReadingListData = (readingListEntry: ReadingListDataType) => {
     )
 }
 
-const ReadingListTable = (tableData: Array<ReadingListDataType>) => {
+const ReadingListTable = (tableData: ReadingListCompleteDataObject)  => {
+    const { data } = tableData
+    const tableContents = data.map((entry) => mapReadingListData(entry))
 
     return (
     <table className="table-auto">
@@ -22,10 +25,7 @@ const ReadingListTable = (tableData: Array<ReadingListDataType>) => {
             <th>description</th>
             <th>readingType</th>
         </thead>
-        {tableData.map((entry) => {return mapReadingListData(entry)})}
-
-
-        
+        {tableContents}        
     </table>
     )
 }

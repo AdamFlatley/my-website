@@ -12,7 +12,9 @@ export type ReadingListDataType = {
         completed: boolean,
 }
 
-export const ReadingListData: ReadingListDataType[] =  [
+export type ReadingListCompleteDataObject = { data : ReadingListDataType[]}
+
+const ReadingListData: ReadingListCompleteDataObject = { data:  [
     {
         readingType: ReadingTypes.BLOG,
         title: 'System Design Case Study #1: Exploring Slack’s Real-time Messaging Architecture',
@@ -37,4 +39,6 @@ export const ReadingListData: ReadingListDataType[] =  [
         link: 'https://www.toptal.com/big-data/consistent-hashing?fbclid=IwAR3PBcnTM2QOFJ8CHk4sUYFpKuBEvOfTKjgbAX_XK_915qrIPgYC3esb1bo',
         completed: false
     },
-]
+] }
+
+export default ReadingListData
