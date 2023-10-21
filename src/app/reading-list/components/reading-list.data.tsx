@@ -11,6 +11,7 @@ export type ReadingListDataType = {
         link: string,
         completed: boolean,
 }
+export const ReadingListIntroduction = 'Here I\'ve collated a list of different reading materials that I\'ve been interested in reading over time. There are links available to the content and a nice little note for those I\'ve been able to read.'
 
 export type ReadingListCompleteDataObject = { data : ReadingListDataType[]}
 
@@ -37,6 +38,14 @@ const ReadingListData: ReadingListCompleteDataObject = { data:  [
         description: 'Strategies for building and testing REST APIs that use API gateways to combine offerings at the microservice level. ',
         keywords: ['API', 'HTTP', 'gRPC'],
         link: 'https://www.toptal.com/big-data/consistent-hashing?fbclid=IwAR3PBcnTM2QOFJ8CHk4sUYFpKuBEvOfTKjgbAX_XK_915qrIPgYC3esb1bo',
+        completed: false
+    },
+    {
+        readingType: ReadingTypes.BLOG,
+        title: 'Export default and export differences',
+        description: 'Strategies for building and testing REST APIs that use API gateways to combine offerings at the microservice level. ',
+        keywords: ['Export', 'Default', 'Typescript'],
+        link: 'https://medium.com/@heshramsis/understanding-the-difference-between-export-default-and-export-with-named-exports-in-javascript-f0569c221a3#:~:text=In%20summary%2C%20export%20default%20and,multiple%20values%20as%20named%20exports',
         completed: false
     },
 ] }

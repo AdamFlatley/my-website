@@ -9,6 +9,10 @@ const mapReadingListData = (readingListEntry: ReadingListDataType) => {
             <td>{readingListEntry.title}</td>
             <td>{readingListEntry.description}</td>
             <td>{readingListEntry.readingType}</td>
+            <td>
+                 <a href={readingListEntry.link}>Link</a>
+            </td>
+
         </tbody>
 
     )
@@ -22,8 +26,9 @@ const ReadingListTable = (tableData: ReadingListCompleteDataObject)  => {
     <table className="table-auto">
         <thead>
             <th>Title</th>
-            <th>description</th>
-            <th>readingType</th>
+            <th>Description</th>
+            <th>Format</th>
+            <th>Link</th>
         </thead>
         {tableContents}        
     </table>
