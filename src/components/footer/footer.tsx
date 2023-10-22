@@ -3,8 +3,8 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer className="flex-row mt-auto bg-teal-500 p-6">
-            <div className= "flex-col">
+        <footer className="flex-row mt-auto bg-teal-500 p-6 absolute bottom-0 w-full">
+            <div className= "flex-col justify-center">
                 <b>Have a suggestion for something I could do better or just want to get in contact?</b>
                 <b>Pop it in the suggestions box and I'll get round to it when I can!</b>
             </div>

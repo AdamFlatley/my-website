@@ -17,10 +17,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className='flex flex-col' lang="en">
+    <html className='flex flex-col h-screen' lang="en">
       <Header />
       {children}
-      <div className='h-screen'>.</div>
+      <div className='flex-1 h-auto'>.</div>
       <Footer />
     </html>
   )
