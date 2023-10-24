@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Headshot from '../../../images/Headshot.png'
+import Headshot from '../../../public/Headshot.png'
 import HeaderTab from '../sub-components/header-tab/header-tab';
 
 const Header = () => {

@@ -5,7 +5,7 @@ import { ReadingListDataType, ReadingListCompleteDataObject } from './reading-li
 
 const mapReadingListData = (readingListEntry: ReadingListDataType) => {
     return (
-        <tbody>
+        <tbody key={readingListEntry.key}>
             <td>{readingListEntry.title}</td>
             <td>{readingListEntry.description}</td>
             <td>{readingListEntry.readingType}</td>

@@ -14,6 +14,14 @@ const BlogTicketData: AllBlogTicketData = {
             topic: 'topic',
             image: 'image'
         },
+        {
+            key: '0',
+            title: 'title',
+            description: 'description',
+            href: 'href',
+            topic: 'topic',
+            image: 'image'
+        },
     ]   
 }
 

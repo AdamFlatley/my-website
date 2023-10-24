@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import Image from 'next/image'
 import dynamic from "next/dynamic";
 import Footer from '@/components/footer/footer'
-import MainBody from '@/components/main-body.tsx/main-body';
+import MainBody from '@/components/about-body.tsx/about-body';
 import  ReadingListData, { ReadingListIntroduction }  from './components/reading-list.data';
 import ReadingListTable from './components/list';
 import { TextContainer } from '@/components/sub-components/text-container/text-container';

@@ -18,6 +18,7 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+         'pinky-good': 'bg-gradient-to-r from-purple-500 to-pink-500',
       },
       keyframes: {
         grow: {
