@@ -23,9 +23,23 @@ const config: Config = {
       keyframes: {
         grow: {
           '0%': { transform: ' scale(1.00)' },
-          '33%': { transform: ' scale(1.06)' },
-          '66%': { transform: ' scale(1.12)' },
+          '10%': { transform: ' scale(1.02)' },
+          '20%': { transform: ' scale(1.04)' },
+          '30%': { transform: ' scale(1.06)' },
+          '40%': { transform: ' scale(1.08)' },
+          '50%': { transform: ' scale(1.1)' },
+          '60%': { transform: ' scale(1.12)' },
           '100%': { transform: ' scale(1.12)' },
+        },
+        growLess: {
+          '0%': { transform: ' scale(1.00)' },
+          '10%': { transform: ' scale(1.01)' },
+          '20%': { transform: ' scale(1.02)' },
+          '30%': { transform: ' scale(1.03)' },
+          '40%': { transform: ' scale(1.04)' },
+          '50%': { transform: ' scale(1.05)' },
+          '60%': { transform: ' scale(1.06)' },
+          '100%': { transform: ' scale(1.06)' },
         },
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },

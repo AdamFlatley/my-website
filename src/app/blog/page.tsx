@@ -10,7 +10,7 @@ import BlogTicketData from './data/blog-page-data';
 export default function BlogPage() {
 
   return (
-    <main className='flex flex-col'>
+    <main className='grid grid-cols-4 gap-4 max-w-md mx-auto md:max-w-2xl'>
       {BlogTicketData.data.map((entry) => {return <BlogTicket {...entry} key={entry.key}/>})}
     </main>
   )
