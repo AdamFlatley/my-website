@@ -13,13 +13,16 @@ export default function HomePage() {
 
   return (
     <main className='flex flex-col max-w-screen-2xl mx-auto'>
-      <div className='flex flex-row '>
-          <img className='max-w-sm rounded-full shadow-lg m-3 justify-self-end'
-                    alt='Avatar' src={SuitImage.src} />
-          <h1 className='max-w-screen-xl m-auto text-lg mt-2 align-middle justify-self-center'>Meet Adam - Fullstack developer who focuses on teaching, readability and clarity.</h1>
-          <img className='max-w-sm rounded-full shadow-lg m-3 justify-self-end'
+      <div className='flex flex-row'>
+          <div  className='flex flex-col max-w-screen-xl mx-auto mb-auto mt-32 align-self-center justify-self-center'>
+            <h1 className='text-lg'>Meet Adam</h1>
+            <h2 className='text-lg'> Fullstack developer with a focus on teaching, readability and clarity.</h2>
+          </div>
+          
+          <img className='max-w-sm rounded-full shadow-2xl m-3 justify-self-end hover:animate-wiggle'
                     alt='Avatar' src={SuitImage.src} />
       </div>
+      <div>beans</div>
     </main>
   )
 }

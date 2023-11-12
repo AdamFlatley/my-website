@@ -39,8 +39,8 @@ const config: Config = {
           '100%': { transform: ' scale(1.03)' },
         },
         wiggle: {
-          '0%, 100%': { transform: 'rotate(-3deg)' },
-          '50%': { transform: 'rotate(3deg)' },
+          '25%': { transform: 'rotate(-2deg)' },
+          '75%': { transform: 'rotate(2deg)' },
         },
       },
       animation: {
