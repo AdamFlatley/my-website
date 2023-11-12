@@ -31,15 +31,12 @@ const config: Config = {
           '60%': { transform: ' scale(1.12)' },
           '100%': { transform: ' scale(1.12)' },
         },
-        growLess: {
+        smallgrow: {
           '0%': { transform: ' scale(1.00)' },
-          '10%': { transform: ' scale(1.01)' },
-          '20%': { transform: ' scale(1.02)' },
-          '30%': { transform: ' scale(1.03)' },
-          '40%': { transform: ' scale(1.04)' },
-          '50%': { transform: ' scale(1.05)' },
-          '60%': { transform: ' scale(1.06)' },
-          '100%': { transform: ' scale(1.06)' },
+          '20%': { transform: ' scale(1.01)' },
+          '40%': { transform: ' scale(1.02)' },
+          '60%': { transform: ' scale(1.03)' },
+          '100%': { transform: ' scale(1.03)' },
         },
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
@@ -49,6 +46,7 @@ const config: Config = {
       animation: {
         wiggle: 'wiggle 1s ease-in-out',
         grow: 'grow 0.5s ease-in-out forwards',
+        smallgrow: 'smallgrow 0.5s ease-in-out forwards',
       }
     }
   },

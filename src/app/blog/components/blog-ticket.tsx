@@ -11,7 +11,7 @@ export type BlogTicketProps = {
 
 export const BlogTicket = (props: BlogTicketProps) => {
 
-    return ( <a href={props.href} className='hover:animate-grow rounded-xl shadow-md overflow-hidden mx-auto bg-white'>
+    return ( <a href={props.href} className='hover:animate-smallgrow rounded-xl shadow-md overflow-hidden bg-white min-w-'>
             <div className="md:flex">
             <div className="md:shrink-0">
                 <img className="h-48 w-full object-cover md:h-full md:w-48" src={props.image} alt="Modern building architecture" />
