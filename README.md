@@ -6,12 +6,12 @@ Styling is done using tailwind (as i only have experience using styled component
 ---
 
 COMPONENT TODO LIST:
-- [ ] Create Header
+- [x] Create Header
 - [ ] Create Footer
 - [ ] Tech icon strip
-- [ ] Decide On Content
+- [x] Decide On Content
 - [ ] Add Styling throughout
-- [ ] Add margins either side of website (max Width of components)
+- [x] Add margins either side of website (max Width of components)
 
 
 ## Getting Started
