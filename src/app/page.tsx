@@ -24,9 +24,15 @@ export default function HomePage() {
                     alt='Avatar' src={SuitImage.src} />
       </div>
       <div className='flex flex-row space-between mx-auto max-w-screen-xl'>
-        <HomePageBox header={'mebox'} description={'medescription'} />
-        <HomePageBox header={'mebox'} description={'medescription'} />
-        <HomePageBox header={'mebox'} description={'medescription'} />
+        <div className='my-0 -mx-5'>
+        <HomePageBox header={'mebox'} description={'medescription'} color='bg-tertiary-color'/>
+        </div>
+        <div className='my-10 -mx-5'>
+        <HomePageBox header={'mebox'} description={'medescription'} color='bg-secondary-color'/>
+        </div>
+        <div className='my-20 -mx-5'>
+        <HomePageBox header={'mebox'} description={'medescription'} color='bg-fourth-color'/>
+        </div>
       </div>
     </main>
   )

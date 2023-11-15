@@ -14,6 +14,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        "primary-color": "var(--primary-color)",
+        "secondary-color": "var(--secondary-color)",
+        "tertiary-color": "var(--tertiary-color)",
+        "fourth-color": "var(--fourth-color)",
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
