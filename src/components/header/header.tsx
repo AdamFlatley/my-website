@@ -5,7 +5,7 @@ import HeaderTab from '../sub-components/header-tab/header-tab';
 
 const Header = () => {
     return (
-        <nav className="bg-teal-500 p-6">
+        <nav className="bg-primary-color p-6">
             <div className="flex align-center justify-between max-w-screen-xl m-auto">
                 <div className="flex items-center flex-shrink-0 text-white mx-10">
                     <img
