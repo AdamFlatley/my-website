@@ -13,15 +13,13 @@ import CollaborationImage from '../../images/business-team-icon.svg'
 import LearningImage from '../../images/e-learning-icon.svg'
 
 
-
 export default function HomePage() {
-  const [showModal, setShowModal] = useState(true)
 
   return (
     <main className='flex flex-col max-w-screen-xl mx-auto divide-y'>
       <div className='flex flex-row max-w-screen-2xl'>
           <div  className='flex flex-col  mx-auto mb-auto mt-32 place-content-evenly'>
-            <h1 className='text-4xl mb-4'>Meet Adam</h1>
+            <h1 className='text-4xl mb-4'>Meet Adam</h1> 
             <h2 className='text-2xl'> Fullstack developer with a focus on teaching, readability and clarity.</h2>
           </div>
           

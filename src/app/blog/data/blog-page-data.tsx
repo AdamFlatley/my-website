@@ -7,13 +7,14 @@ import APIFull from './images/API-full.png'
 export type AllBlogTicketData = {
     data:  BlogTicketProps[]}
 
+//when adding a blog href make sure to use blog/slug
 const BlogTicketData: AllBlogTicketData = {
     data:  [
         {
             key: '0',
             title: 'GraphQL complexity limits',
             description: 'Why are they so complex?',
-            href: 'href',
+            href: 'blog/graphql-complexity',
             topic: 'GraphQl',
             image: graphql.src
         },
@@ -21,7 +22,7 @@ const BlogTicketData: AllBlogTicketData = {
             key: '1',
             title: 'GraphQL gateways',
             description: 'Join the federation',
-            href: 'href',
+            href: 'blog/graphql-gateways',
             topic: 'GraphQl',
             image: graphql.src
         },
@@ -29,7 +30,7 @@ const BlogTicketData: AllBlogTicketData = {
             key: '2',
             title: 'gRPC vs HTTP',
             description: 'Which to use and when?',
-            href: 'href',
+            href: 'blog/grpc-vs-http',
             topic: 'API',
             image: API.src
         }, 
@@ -37,7 +38,7 @@ const BlogTicketData: AllBlogTicketData = {
             key: '3',
             title: 'gRPC vs HTTP',
             description: 'Which to use and when?',
-            href: 'href',
+            href: 'blog/grpc-vs-http',
             topic: 'API',
             image: APIFull.src
         },      ]   
