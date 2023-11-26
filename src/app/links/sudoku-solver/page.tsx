@@ -30,7 +30,7 @@ const initEmptyBoard = (): Row[] => {
         key: '' + i + j,
         row: '' + i,
         col: '' + j,
-        content: '',
+        content: '1',
       })
     }
     sudokuBoard.push(
@@ -61,7 +61,7 @@ const initEmptyBoard = (): Row[] => {
 //   return sudokuBoard
 // }
 
-const fatherForgiveMeForMyTransgressions = (key: string) => {
+const fatherForgiveMeForIHaveSinned = (key: string) => {
   //named so because its takes a string '08', turns it into a number and finds the row column using / 10 .floor and % remainder 
   const keyAsNumber = parseInt(key)
   const row = Math.floor(keyAsNumber / 10)
@@ -75,7 +75,7 @@ const changeSquare = (row: number, col: number) => {
 
 export default function LinksPage() {
 
-  // const [sudokuBoard, setSudokuBoard] = useState(initEmptyBoard())
+  const [sudokuBoard, setSudokuBoard] = useState(initEmptyBoard())
   // const [sudokuBoard2, setSudokuBoard2] = useState(initEmptyBoard())
   const [sudokuSquare, setSudokuSquare] = useState('')
 
@@ -83,43 +83,42 @@ export default function LinksPage() {
     setSudokuSquare(event.target.value)
   }
 
-  // const handleSquareChange = (event: any) => {
-  //   // console.log(event)
-  //   const target = event.target
-  //   const key = target.key
-  //   const rowAndCol = fatherForgiveMeForMyTransgressions(key)
-  //   console.log(key)
-  //   sudokuBoard[rowAndCol.row].row[rowAndCol.col] = {
-  //     key: key,
-  //     row: '' + rowAndCol.row,
-  //     col: '' + rowAndCol.col,
-  //     content: '' + event.target.value,
-  //   }
-  //   setSudokuBoard(sudokuBoard)
-  // }
+  const handleSquareChange = (event: any) => {
+    // console.log(event)
+    const newBoard = sudokuBoard
+    const target = event.target
+    const key = target.name
+    const rowAndCol = fatherForgiveMeForIHaveSinned(key)
+    const newSquare = {
+      key: '' + rowAndCol.row +  rowAndCol.col,
+      row: '' + rowAndCol.row,
+      col: '' + rowAndCol.col,
+      content: '' + event.target.value,
+    }
+    newBoard[rowAndCol.row].row[rowAndCol.col] = newSquare
+    console.log(newBoard, 'newBoard')
+    setSudokuBoard(newBoard)
 
-
+  }
 
   return (
     <main className='flex flex-col max-w-screen-xl mx-auto divide-y'>
         <h1 className='text-4xl mb-4'>Sudoku Solver</h1> 
         <h2 className='text-2xl'>Enter your Sudoku Puzzle and this program will provide a solution - Given there is one! </h2>
-        {/* <div className='mx-auto max-h-xl'>
+        <div className='mx-auto max-h-xl'>
             {sudokuBoard.map((row) => {
               return (<div key={row.key} className='flex flex-row max-w-xl'>
                 {row.row.map((square) => {
-                  return <input key={square.key} type="text" className="block w-5 border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={e => handleEvent(e)} value={sudokuSquare}/> })
+                  return <input key={square.key} type="text" name={square.key} id={square.key} placeholder='1' className="block w-10 border-0 text-gray-900 ring-1 ring-inset ring-gray-300  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={e => handleSquareChange(e)} value={square.content}/> })
                   
                 }
                 </div>)
             })}
-        </div> */}
-       <input type="text" name="Contact/Feedbacks" id="Contact/Feedbacks" className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="If you're trying to start a conversation leave some contact information or contact me via LinkedIn instead!" />
+        </div>
+       <input type="text" name="Contact/Feedbacks" id="Contact/Feedbacks" onChange={(e) => handleEvent(e)} value={sudokuSquare} className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="If you're trying to start a conversation leave some contact information or contact me via LinkedIn instead!" />
       <button>Solve</button>
       <button>Reset</button>
     </main>
   )
 }
 // {BlogTicketData.data.map((entry) => {return <BlogTicket {...entry} key={entry.key}/>})}
-
-//error with hydration of system!
