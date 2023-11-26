@@ -20,13 +20,15 @@ export default function RootLayout({
 
   return (
     <html className='flex flex-col h-screen bg pinky-good' lang="en">
-      {/* {!isHomepage && <Header />} */}
-      <Header />
 
-      <div className='flex-1 h-auto'></div>
-      <body>{children}</body>
-      <Footer />
-      {/* {!isHomepage && <Footer />} */}
+
+      <body>      
+        <Header />
+        {children}
+        <div className='flex-1 h-auto'></div>
+        <Footer />
+      </body>
+
     </html>
   )
 }

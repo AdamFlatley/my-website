@@ -43,23 +43,23 @@ const initEmptyBoard = (): Row[] => {
   return sudokuBoard
 }
 
-const initEmptyBoard2 = (): Row[] => {
-  let sudokuBoard: Row[] = []
-  for (let i = 0; i < 9; i++) {
-    //could be an issue with overwriting reference
-    let row: string[] = []
-    for (let j = 0; j < 9; j++) {
-      row.push('')
-    }
-    sudokuBoard.push(
-      {
-        key: '' + i,
-        row: row,
-      }
-      )
-  }
-  return sudokuBoard
-}
+// const initEmptyBoard2 = (): Row[] => {
+//   let sudokuBoard: Row[] = []
+//   for (let i = 0; i < 9; i++) {
+//     //could be an issue with overwriting reference
+//     let row: string[] = []
+//     for (let j = 0; j < 9; j++) {
+//       row.push('')
+//     }
+//     sudokuBoard.push(
+//       {
+//         key: '' + i,
+//         row: row,
+//       }
+//       )
+//   }
+//   return sudokuBoard
+// }
 
 const fatherForgiveMeForMyTransgressions = (key: string) => {
   //named so because its takes a string '08', turns it into a number and finds the row column using / 10 .floor and % remainder 
@@ -114,9 +114,9 @@ export default function LinksPage() {
                 </div>)
             })}
         </div> */}
-        <input type="text" className="block w-5 border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={e => handleEvent(e)} value={sudokuSquare}/>
-        <button>Solve</button>
-        <button>Reset</button>
+       <input type="text" name="Contact/Feedbacks" id="Contact/Feedbacks" className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="If you're trying to start a conversation leave some contact information or contact me via LinkedIn instead!" />
+      <button>Solve</button>
+      <button>Reset</button>
     </main>
   )
 }
