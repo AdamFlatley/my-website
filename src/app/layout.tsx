@@ -22,8 +22,9 @@ export default function RootLayout({
     <html className='flex flex-col h-screen bg pinky-good' lang="en">
       {/* {!isHomepage && <Header />} */}
       <Header />
-      {children}
+
       <div className='flex-1 h-auto'></div>
+      <body>{children}</body>
       <Footer />
       {/* {!isHomepage && <Footer />} */}
     </html>
