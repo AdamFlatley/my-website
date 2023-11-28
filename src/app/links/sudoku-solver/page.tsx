@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import dynamic from "next/dynamic";
 import Footer from '@/components/footer/footer'
@@ -30,7 +30,7 @@ const initEmptyBoard = (): Row[] => {
         key: '' + i + j,
         row: '' + i,
         col: '' + j,
-        content: '1',
+        content: '',
       })
     }
     sudokuBoard.push(
@@ -69,9 +69,48 @@ const fatherForgiveMeForIHaveSinned = (key: string) => {
   return {row, col}
 }
 
-const changeSquare = (row: number, col: number) => {
-
+const solveSudoku = (board: Row[]) => {
+  for(let i = 0; i < 9; i++){
+    console.log(i)
+    for(let j = 0; j < 9; j ++){
+      if (board[i].row[j].content === ''){
+        for(let k = 1; k < 10; k++) { 
+          if(isPossible(board, k, i, j))
+          board[i].row[j].content = '' + k
+          solveSudoku(board)
+          board[i].row[j].content = ''
+      }
+      return
+    }
+    return board
+  }
+  }
+  return board
 }
+
+const isPossible = (board: Row[], value: number, col: number, row: number) => {
+  for(let i = 0; i < 9; i ++){
+    if (board[row].row[i].content === '' + value) {
+      return false
+    }
+  }
+  for(let i = 0; i < 9; i ++){
+    if (board[i].row[col].content === '' + value) {
+      return false
+    }
+  }
+  let x0 = (Math.floor(row/3))*3
+  let y0 = (Math.floor(col/3))*3
+  for(let i = 0; i < 3; i ++){
+    for(let j = 0; j < 3; j++) { 
+          if (board[y0+i].row[x0+j].content === '' + value) {
+            return false
+          }
+    }
+  }
+  console.log('reached')
+  return true
+  }
 
 export default function LinksPage() {
 
@@ -79,22 +118,50 @@ export default function LinksPage() {
   // const [sudokuBoard2, setSudokuBoard2] = useState(initEmptyBoard())
   const [sudokuSquare, setSudokuSquare] = useState('')
 
+  useEffect(()=>{
+    setSudokuBoard(sudokuBoard)
+},[sudokuBoard])
+
   const handleEvent = (event: any) => {
     setSudokuSquare(event.target.value)
   }
 
+  const handleSolve = (event: any) => {
+    const solvedSudokuBoard = solveSudoku(sudokuBoard)
+    if (solvedSudokuBoard === undefined) {
+      console.log('help')
+      return
+    }
+    setSudokuBoard(solvedSudokuBoard)
+  } 
+
+  const handleReset = (event: any) => {
+    setSudokuBoard(initEmptyBoard())
+  }
+
+
+
   const handleSquareChange = (event: any) => {
     // console.log(event)
-    const newBoard = sudokuBoard
+    const newBoard = [...sudokuBoard]
     const target = event.target
     const key = target.name
     const rowAndCol = fatherForgiveMeForIHaveSinned(key)
-    const newSquare = {
+    let newSquare
+    if (event.target.value.length > 0) {
+    newSquare = {
       key: '' + rowAndCol.row +  rowAndCol.col,
       row: '' + rowAndCol.row,
       col: '' + rowAndCol.col,
-      content: '' + event.target.value,
+      content: '' + event.target.value[event.target.value.length-1],
     }
+  } else {
+    newSquare = {
+      key: '' + rowAndCol.row +  rowAndCol.col,
+      row: '' + rowAndCol.row,
+      col: '' + rowAndCol.col,
+      content: ''
+  }}
     newBoard[rowAndCol.row].row[rowAndCol.col] = newSquare
     console.log(newBoard, 'newBoard')
     setSudokuBoard(newBoard)
@@ -109,15 +176,15 @@ export default function LinksPage() {
             {sudokuBoard.map((row) => {
               return (<div key={row.key} className='flex flex-row max-w-xl'>
                 {row.row.map((square) => {
-                  return <input key={square.key} type="text" name={square.key} id={square.key} placeholder='1' className="block w-10 border-0 text-gray-900 ring-1 ring-inset ring-gray-300  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={e => handleSquareChange(e)} value={square.content}/> })
+                  return <input key={square.key} type="text" name={square.key} id={square.key} className="block w-10 border-0 text-gray-900 ring-1 ring-inset ring-gray-300  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={e => handleSquareChange(e)} value={square.content}/> })
                   
                 }
                 </div>)
             })}
         </div>
        <input type="text" name="Contact/Feedbacks" id="Contact/Feedbacks" onChange={(e) => handleEvent(e)} value={sudokuSquare} className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="If you're trying to start a conversation leave some contact information or contact me via LinkedIn instead!" />
-      <button>Solve</button>
-      <button>Reset</button>
+      <button onClick={handleSolve}>Solve</button>
+      <button onClick={handleReset}>Reset</button>
     </main>
   )
 }
