@@ -4,7 +4,7 @@ import Image from 'next/image'
 import dynamic from "next/dynamic";
 import Footer from '@/components/footer/footer'
 import MainBody from '@/components/about-body.tsx/about-body';
-import { hasBadInput, hasMinimumSquares } from './sudoku-solver.utils';
+import { hasBadInput, hasMinimumSquares, solveSudoku } from './sudoku-solver.utils';
 
 export type Square = {
   // aim here will be for key to be row + col, e.g '11' for index 1 for both
@@ -86,26 +86,40 @@ export default function LinksPage() {
   }
 
   const handleSolve = (event: any) => {
+    setMinimumSquaresError(false)
+    setBadInputError(false)
     //check if input is valid
     if(!hasMinimumSquares(sudokuBoard)){
+      console.log('minimumSquares')
       setMinimumSquaresError(true)
     }
     if(hasBadInput(sudokuBoard)){
+      console.log('badInput')
       setBadInputError(true)
     }
-    
-
-    setSudokuBoard(sudokuBoard)
+    console.log(badInputError, 'badInputError')
+    console.log(minimumSquaresError, 'minimumSquaresError')
+    if(badInputError || minimumSquaresError){
+      console.log('error available')
+      return
+    }
+    console.log('eyoooo')
+    let newBoard = solveSudoku(sudokuBoard) ?? sudokuBoard
+    console.log('newBoard', newBoard)
+    setSudokuBoard(newBoard)
   } 
 
   const handleReset = (event: any) => {
+    setMinimumSquaresError(false)
+    setBadInputError(false)
     setSudokuBoard(initEmptyBoard())
   }
 
+  console.log(minimumSquaresError)
 
 
   const handleSquareChange = (event: any) => {
-    // console.log(event)
+
     const newBoard = [...sudokuBoard]
     const target = event.target
     const key = target.name
@@ -129,7 +143,8 @@ export default function LinksPage() {
       content: ''
   }}
     newBoard[rowAndCol.row].row[rowAndCol.col] = newSquare
-    console.log(newBoard, 'newBoard')
+    setMinimumSquaresError(false)
+    setBadInputError(false)
     setSudokuBoard(newBoard)
 
   }
