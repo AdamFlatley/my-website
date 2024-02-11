@@ -15,19 +15,38 @@ export const hasMinimumSquares = (board: Row[]) => {
         })
     })
     return false
-
 }
 
+export const hasBadInput = (board: Row[]) => {
+
+    for(let i = 0; i < 9; i++){
+        console.log(i)
+        for(let j = 0; j < 9; j ++){
+
+    board.forEach((row) => {
+        row.row.forEach((square) => {
+            if(square.content !== "") {
+                if(isAnInvalidInput(board, square.content, Number(square.col), Number(square.row))){
+                    return true
+                }
+            }
+        })
+    })
+    return false
+}
+    }
+}
 export const solveSudoku = (board: Row[]) => {
     for(let i = 0; i < 9; i++){
       console.log(i)
       for(let j = 0; j < 9; j ++){
         if (board[i].row[j].content === ''){
           for(let k = 1; k < 10; k++) { 
-            if(isPossible(board, k, i, j))
-            board[i].row[j].content = '' + k
-            solveSudoku(board)
-            board[i].row[j].content = ''
+            if(isPossible(board, k, i, j)) {
+                board[i].row[j].content = '' + k
+                solveSudoku(board)
+                board[i].row[j].content = ''
+            }
         }
         return
       }
@@ -36,27 +55,50 @@ export const solveSudoku = (board: Row[]) => {
     }
     return board
 }
-  
+
 export const isPossible = (board: Row[], value: number, col: number, row: number) => {
-for(let i = 0; i < 9; i ++){
-    if (board[row].row[i].content === '' + value) {
-    return false
-    }
-}
-for(let i = 0; i < 9; i ++){
-    if (board[i].row[col].content === '' + value) {
-    return false
-    }
-}
-let x0 = (Math.floor(row/3))*3
-let y0 = (Math.floor(col/3))*3
-for(let i = 0; i < 3; i ++){
-    for(let j = 0; j < 3; j++) { 
-        if (board[y0+i].row[x0+j].content === '' + value) {
-            return false
+    for(let i = 0; i < 9; i ++){
+        if (board[row].row[i].content === '' + value) {
+        return false
         }
     }
+    for(let i = 0; i < 9; i ++){
+        if (board[i].row[col].content === '' + value) {
+        return false
+        }
+    }
+    let x0 = (Math.floor(row/3))*3
+    let y0 = (Math.floor(col/3))*3
+    for(let i = 0; i < 3; i ++){
+        for(let j = 0; j < 3; j++) { 
+            if (board[y0+i].row[x0+j].content === '' + value) {
+                return false
+            }
+        }
+    }
+    return true
 }
-console.log('reached')
-return true
+    
+
+const isAnInvalidInput = (board: Row[], value: string, col: number, row: number) => {
+    for(let i = 0; i < 9; i ++){
+        if (board[row].row[i].content === '' + value) {
+        return false
+        }
+    }
+    for(let i = 0; i < 9; i ++){
+        if (board[i].row[col].content === '' + value) {
+        return false
+        }
+    }
+    let x0 = (Math.floor(row/3))*3
+    let y0 = (Math.floor(col/3))*3
+    for(let i = 0; i < 3; i ++){
+        for(let j = 0; j < 3; j++) { 
+            if (board[y0+i].row[x0+j].content === '' + value && (y0+i !== col && x0+j !== row)) {
+                return false
+            }
+        }
+    }
+    return true
 }

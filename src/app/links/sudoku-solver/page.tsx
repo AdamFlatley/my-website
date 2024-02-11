@@ -4,6 +4,7 @@ import Image from 'next/image'
 import dynamic from "next/dynamic";
 import Footer from '@/components/footer/footer'
 import MainBody from '@/components/about-body.tsx/about-body';
+import { hasBadInput, hasMinimumSquares } from './sudoku-solver.utils';
 
 export type Square = {
   // aim here will be for key to be row + col, e.g '11' for index 1 for both
@@ -72,6 +73,8 @@ const fatherForgiveMeForIHaveSinned = (key: string) => {
 export default function LinksPage() {
 
   const [sudokuBoard, setSudokuBoard] = useState(initEmptyBoard())
+  const [minimumSquaresError, setMinimumSquaresError] = useState(false)
+  const [badInputError, setBadInputError] = useState(false)
   const [sudokuSquare, setSudokuSquare] = useState('')
 
   useEffect(()=>{
@@ -83,7 +86,14 @@ export default function LinksPage() {
   }
 
   const handleSolve = (event: any) => {
-    //Make request to service that will return the answer
+    //check if input is valid
+    if(!hasMinimumSquares(sudokuBoard)){
+      setMinimumSquaresError(true)
+    }
+    if(hasBadInput(sudokuBoard)){
+      setBadInputError(true)
+    }
+    
 
     setSudokuBoard(sudokuBoard)
   } 
@@ -139,6 +149,8 @@ export default function LinksPage() {
             })}
         </div>
        {/* <input type="text" name="Contact/Feedbacks" id="Contact/Feedbacks" onChange={(e) => handleEvent(e)} value={sudokuSquare} className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="If you're trying to start a conversation leave some contact information or contact me via LinkedIn instead!" /> */}
+      {minimumSquaresError && <div className='text-2xl'>You need more squares, that isn't mathematically possible!</div>}
+      {badInputError && <div className='text-2xl'>that's a bad input you goofball!</div>}
       <button onClick={handleSolve}>Solve</button>
       <button onClick={handleReset}>Reset</button>
     </main>
