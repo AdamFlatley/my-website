@@ -1,6 +1,7 @@
 const enum ReadingTypes {
     BOOK = 'BOOK',
-    BLOG = 'BLOG'
+    BLOG = 'BLOG',
+    WEBSITE = 'WEBSITE'
 }
 
 export type ReadingListDataType = {
@@ -15,10 +16,19 @@ export type ReadingListDataType = {
 export const ReadingListIntroduction = 'Here I\'ve collated a list of different reading materials that I\'ve been interested in reading over time. There are links available to the content and a nice little note for those I\'ve been able to read.'
 
 export type ReadingListCompleteDataObject = { data : ReadingListDataType[]}
-
+// https://roadmap.sh/backend
 const ReadingListData: ReadingListCompleteDataObject = { data:  [
     {
         key: '0',
+        readingType: ReadingTypes.WEBSITE,
+        title: 'Roadmap for becoming a developer',
+        description: 'A good reference point for different things that can be learnt to improve skills as a developer',
+        keywords: ['Learning','Developer','References'],
+        link: 'https://scaleyourapp.com/system-design-case-study-real-time-messaging-architecture/?utm_source=tldrwebdev&fbclid=IwAR3s2IHG-xrNXjGz5f4QARU8jspX65g_Mp1OkeZmAYa0CRJx_mwknRqLkko',
+        completed: false
+    },
+    {
+        key: '1',
         readingType: ReadingTypes.BLOG,
         title: 'System Design Case Study #1: Exploring Slack’s Real-time Messaging Architecture',
         description: 'An in depth study on Slack\s architecture and why certain services prefer alternative transfer protocols.',
@@ -27,7 +37,7 @@ const ReadingListData: ReadingListCompleteDataObject = { data:  [
         completed: true
     },
     {
-        key: '1',
+        key: '2',
         readingType: ReadingTypes.BLOG,
         title: 'A Guide to Consistent Hashing',
         description: 'A blogpost explaining hashing and a new how to use distributed hashing with more complex systems',
@@ -36,7 +46,7 @@ const ReadingListData: ReadingListCompleteDataObject = { data:  [
         completed: true
     },
     {
-        key: '2',
+        key: '3',
         readingType: ReadingTypes.BOOK,
         title: 'Mastering API Architecture',
         description: 'Strategies for building and testing REST APIs that use API gateways to combine offerings at the microservice level. ',
@@ -45,7 +55,7 @@ const ReadingListData: ReadingListCompleteDataObject = { data:  [
         completed: false
     },
     {
-        key: '3',
+        key: '4',
         readingType: ReadingTypes.BLOG,
         title: 'Export default and export differences',
         description: 'Strategies for building and testing REST APIs that use API gateways to combine offerings at the microservice level. ',

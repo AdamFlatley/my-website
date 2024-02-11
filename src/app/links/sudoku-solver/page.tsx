@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import Footer from '@/components/footer/footer'
 import MainBody from '@/components/about-body.tsx/about-body';
 
-type Square = {
+export type Square = {
   // aim here will be for key to be row + col, e.g '11' for index 1 for both
   
   key: string,
@@ -14,7 +14,7 @@ type Square = {
   content: string
 }
 
-type Row = {
+export type Row = {
   // aim here will be for key to be row + col, e.g '11' for index 1 for both
   key: string,
   row: Square[]
@@ -84,6 +84,7 @@ export default function LinksPage() {
 
   const handleSolve = (event: any) => {
     //Make request to service that will return the answer
+
     setSudokuBoard(sudokuBoard)
   } 
 
@@ -137,7 +138,7 @@ export default function LinksPage() {
                 </div>)
             })}
         </div>
-       <input type="text" name="Contact/Feedbacks" id="Contact/Feedbacks" onChange={(e) => handleEvent(e)} value={sudokuSquare} className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="If you're trying to start a conversation leave some contact information or contact me via LinkedIn instead!" />
+       {/* <input type="text" name="Contact/Feedbacks" id="Contact/Feedbacks" onChange={(e) => handleEvent(e)} value={sudokuSquare} className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="If you're trying to start a conversation leave some contact information or contact me via LinkedIn instead!" /> */}
       <button onClick={handleSolve}>Solve</button>
       <button onClick={handleReset}>Reset</button>
     </main>
